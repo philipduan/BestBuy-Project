@@ -1,7 +1,6 @@
 {
   "name": "es2015",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,16 +11,27 @@
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browser-sync": "^2.18.13",
-    "browserify": "^14.4.0",
+    "browserify": "^14.5.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
     "gulp-notify": "^3.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglifycss": "^1.0.8",
+    "gulp-util": "^3.0.8",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philipduan/BestBuy-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/philipduan/BestBuy-Project/issues"
+  },
+  "homepage": "https://github.com/philipduan/BestBuy-Project#readme",
+  "description": ""
 }

@@ -1,3 +1,5 @@
+//npm install --save-dev gulp gulp-util gulp-notify vinyl-source-stream vinyl-buffer browserify watchify babelify gulp-concat gulp-uglifycss gulp-sass browser-sync
+
 var gulp = require("gulp");
 var gutil = require("gulp-util");
 var notify = require("gulp-notify");
@@ -9,6 +11,7 @@ var babelify = require("babelify");
 var concat = require("gulp-concat");
 var uglifycss = require("gulp-uglifycss");
 var sass = require("gulp-sass");
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require("browser-sync").create();
 
 var ENTRY_FILE = "./src/js/index.js";
@@ -46,7 +49,10 @@ gulp.task("serve", function () {
 
 gulp.task('scss', function () {
     return gulp.src('./src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers:['last 2 versions']
+		}))
         .pipe(concat('build.css'))
         .pipe(uglifycss())
         .pipe(gulp.dest('./build/css/'));

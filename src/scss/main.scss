@@ -1,7 +1,538 @@
-@import 'reset';
+@import '_reset';
 
-a {
-  span {
-    color: red;
+$tablet-width:600px;
+$desktop-width:1240px;
+
+@mixin tablet{
+    @media screen and (min-width:$tablet-width){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media screen and (min-width:$desktop-width){
+        @content;
+    }
+}
+
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay{
+  background-color: rgba(0,0,0,0.8);
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: 0.5s;
+  width: 100%;
+  z-index: 1;
+
+  .overlay-content{
+    background: white;
+    height: 60%;
+    padding: 7% 0 0 3%;
+    margin: 100px auto;
+    overflow-y: scroll;
+    position: relative;
+    width: 80%;
+
+    a{
+      background: red;
+      color: white;
+      cursor: pointer;
+      font-size: 2em;
+      font-weight: bold;
+      position: absolute;
+      right: 10px;
+      top: 5px;
+    }
+
+    .head{
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      width: 100%;
+      h1{
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      pre{
+        span{
+          color: #63AB86;
+        }
+      }
+    }
+
+    .pay{
+      align-items: center;
+      display: flex;
+      margin: 30px 0;
+      width: 100%;
+
+      p, p1{
+        font-size: 0.8em;
+        text-transform: uppercase;
+        width: 20%;
+      }
+
+      p1{
+        width: 30%;
+        input{
+          border: 1px solid #BBBBBB;
+          display:  inline-block;
+          margin-left: 3px;
+          padding: 0 1px;
+          text-align: center;
+          width: 25px;
+        }
+      }
+
+      .duo{
+        display: flex;
+        padding: 0 1%;
+        width: 30%;
+        button{
+          color: #FFFFFF;
+          font-size: 0.8em;
+          padding: 0 2px;
+          text-transform: uppercase;
+          width: 49%;
+        }
+        #update{
+          border: 5px solid #63AB86;
+          border-radius: 50px 0 0 50px;
+          background: #63AB86;
+        }
+        #remove{
+          border: 5px solid #D82833;
+          border-radius: 0 50px 50px 0;
+          background: #D82833;
+        }
+      }
+    }
+
+    @include tablet{
+      padding-top: 3%;
+      width: 60%;
+      .head{
+        h1{
+          font-size: 3em;
+        }
+        pre{
+          font-size: 1.3em;
+          span{
+            color: #63AB86;
+          }
+        }
+      }
+
+      .pay{
+ 
+        p, p1{
+          font-size: 1em;
+        }
+  
+        .duo{
+          button{
+            font-size: 1em;
+          }
+        }
+      }
+    }
+
+    @include desktop{
+      width: 50%;
+      .head{
+        h1{
+          font-size: 3em;
+        }
+        pre{
+          font-size: 1.3em;
+          span{
+            color: #63AB86;
+          }
+        }
+      }
+
+      .pay{
+ 
+        p, p1{
+          font-size: 1em;
+        }
+  
+        .duo{
+          button{
+            font-size: 1em;
+          }
+        }
+      }
+    }
   }
 }
+
+header{
+  background:linear-gradient(#81A192,#CED8D3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 300px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  #shopCart{
+    &:before{
+      content: "\f07a";
+      color: #FFFFFF;
+      font-family: FontAwesome;
+      font-size: 3em;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 2;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  
+  }
+
+  h1{
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 90px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  h2{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  #shopNow{
+    background: 	#608473;
+    border: 0;
+    box-shadow: 3px 3px #000000;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    font-weight: bold;
+    height: 40px;
+    margin: 40px 0 85px 0 ;
+    padding: 0 60px;
+    text-transform: uppercase;
+  }
+
+  @include tablet{
+    height: 400px;
+
+    #shopCart:before{
+      font-size: 4em;
+    }
+
+    h1{
+      font-size: 4em;
+      margin-top: 100px;
+    }
+
+    h2{
+      font-size: 2.5em;
+    }
+
+    #shopNow{
+      font-size: 1.5em;
+    }
+  }
+
+  @include desktop{
+
+    #shopCart:before{
+      font-size: 5em;
+      right: 30px;
+      top: 30px;
+    }
+
+    h1{
+      font-size: 4.5em;
+      margin-top: 130px;
+    }
+
+    h2{
+      font-size: 3em;
+    }
+
+    #shopNow{
+      font-size: 2em;
+      height: 60px;
+      padding: 0 100px;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  
+}
+
+#moto{
+  
+  text-align: center;
+  h2{
+    font-size: 1em;
+    font-weight: bold;
+    margin: 50px auto;
+    text-transform: uppercase;
+
+    span{
+      color: #63AB86;
+    }
+
+  }
+
+  p{
+    font-size: 0.8em;
+    margin: 0 auto;
+    width: 85%;    
+  }
+
+  @include tablet{
+    h2{
+      font-size: 2.2em;
+    }
+
+    p{
+      font-size: 1.2em;
+      width: 75%;
+    }
+  }
+
+  @include desktop{
+    h2{
+      font-size: 2.3em;
+    }
+
+    p{
+      font-size: 1.7em;
+    }
+  }
+}
+
+nav{
+  background: #63AB86;
+  margin-top: 70px;
+  width: 100%;
+
+  ul{
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    font-size: 0.8em;
+    height: 40px;
+    justify-content: space-around;
+    margin: 0 auto;
+    width:80%;
+    text-transform: uppercase;
+
+    li{
+      
+      &:hover{
+        color: #ab6c63;
+        cursor: pointer;
+      }
+
+    }
+    .highlight{
+      color: #ab6c63;
+    }
+
+    
+  }
+
+  @include tablet{
+    ul{
+      font-size: 1.5em;
+      height: 70px;
+    }
+  }
+
+  @include desktop{
+    ul{
+      font-size: 2em;
+    }
+  }
+}
+
+.display{
+  margin: 100px auto;
+  text-align: center;
+  width: 70%;
+
+  .bx-wrapper{
+    border: 0;
+    box-shadow: unset;
+  }
+
+  .product{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    width: 50%;
+  }
+
+  .brand{
+    font-size: 1.5em;
+    font-weight: bold;
+
+  }
+
+  .specs{
+    font-size: 0.8em;
+    height: 100px;
+    margin: 10px 0 10px 0;
+  }
+
+
+  .price{
+  color: #63AB86;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+
+  }
+  .addToCart{
+    background: #63AB86;
+    border: 0;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    width: 100%;
+    &:hover{
+      color: #ab6c63;
+      cursor: pointer;
+    }
+  }
+  @include tablet{
+    .brand{
+      font-size: 2em;
+    }
+
+    .specs{
+      font-size: 1.5em;
+    }
+
+    .image{
+      height: 400px;
+    }
+
+    .price{
+      font-size: 2em;
+    }
+
+    .addToCart{
+      font-size: 1.5em;
+      margin-top: 25px;
+      padding: 30px 0;
+    }
+  }
+
+  @include desktop{
+    .brand{
+      font-size: 2.5em;
+    }
+
+    .specs{
+      font-size: 1.5em;
+    }
+
+    .image{
+      height: 400px;
+    }
+
+    .price{
+      font-size: 2em;
+    }
+
+    .addToCart{
+      font-size: 1.5em;
+      padding: 30px 0;
+    }
+  }
+}
+ footer{
+   background: #302E2F;
+   color: white;
+   padding: 30px 0 25px 0;
+   text-align: center;
+   text-transform: uppercase;
+   width: 100%;
+
+   #updates{
+     font-size: 1.5em;
+     font-weight: bold;
+   }
+
+   #notStop{
+     font-size: 0.7em;
+     margin: 10px 0 20px 0;
+
+   }
+
+   form{
+     background: #FFFFFF;
+     border: 2px solid #FFFFFF;
+     border-radius: 50px;
+     display: flex;
+     justify-content: space-between;
+     margin: 0 auto;
+     width: 70%;
+     input{
+       margin-left: 20px;
+       width: 70%;
+
+     }
+     #submit{
+      background: 	#608473; 
+      border: 10px solid 	#608473;
+      border-radius: 0 50px 50px 0;
+      color: white;
+      font-size: 0.6em;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 20%;
+     }
+   }
+
+   p{
+    margin-top: 15px;
+  }
+
+   @include tablet{
+     #updates{
+       font-size: 3em;
+     }
+
+     #notStop{
+       font-size: 1.5em;
+     }
+
+     form{
+       border: 5px solid #FFFFFF;
+
+       input{
+         font-size: 1.5em;
+       }
+       #submit{
+         font-size: 1.5em;
+       }
+     }
+   }
+ }
