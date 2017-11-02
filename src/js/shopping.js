@@ -37,7 +37,7 @@ export function delt(parent, qtyText, totalText) {
 
 export function updt(parent, newVal, qtyText, totalText) {
     var sku = parent.children('#sku').text().split(' ').splice(2, 3).join();
-    if (newVal) {
+    if (newVal==0) {
         sessionStorage.removeItem(sku);
         parent.remove();
     } else {
