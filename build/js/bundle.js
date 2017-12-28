@@ -129,7 +129,6 @@ var App = function () {
 		value: function argBBCall(category) {
 			(0, _bestbuy2.default)({ url: "https://api.bestbuy.com/v1/products(categoryPath.id=" + category + ")", api: "8ccddf4rtjz5k5btqam84qak" }).then(function (data) {
 				/* fill carousel with products */
-				console.log(data.products);
 				fct.displayProduct(data.products);
 				$(document).ready(function () {
 					window.slider.reloadSlider({
